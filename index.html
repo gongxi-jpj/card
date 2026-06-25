@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 初中毕业典礼邀请函</title>
+    <style>
+        :root {
+            --gold: #d4a853;
+            --gold-light: #f0d78c;
+            --navy: #1a2a4a;
+            --navy-light: #2c3e6b;
+            --white: #fffdf7;
+            --cream: #fef9ed;
+            --rose: #e8c4b8;
+            --accent: #c9a96e;
+            --text-dark: #2c2416;
+            --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.08);
+            --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.18), 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-elegant: 2px solid rgba(180, 150, 100, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Serif SC', 'STSong', 'SimSun', serif;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #1a2744 0%, #1e3255 20%, #243b60 40%, #1a2a4a 60%, #152238 80%, #0f1b30 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 星空背景 */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.9;
+                transform: scale(1.6);
+            }
+            50% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            75% {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
+
+        /* 金色粒子 */
+        .particles-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: floatUp var(--float-dur) linear infinite;
+            animation-delay: var(--float-delay);
+            opacity: 0;
+            box-shadow: 0 0 8px 3px rgba(240, 215, 140, 0.6);
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+                transform: translateY(90vh) translateX(15px) scale(1.2);
+            }
+            30% {
+                opacity: 0.7;
+                transform: translateY(65vh) translateX(-10px) scale(0.9);
+            }
+            60% {
+                opacity: 0.4;
+                transform: translateY(30vh) translateX(20px) scale(1.1);
+            }
+            90% {
+                opacity: 0.1;
+                transform: translateY(5vh) translateX(-5px) scale(0.5);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* 主容器 */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 750px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        /* 顶部装饰 */
+        .top-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .ornament-line {
+            width: 50px;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+            border-radius: 1px;
+        }
+        .ornament-diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold-light);
+            transform: rotate(45deg);
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(240, 215, 140, 0.7);
+            animation: pulseDiamond 2s ease-in-out infinite;
+        }
+        @keyframes pulseDiamond {
+            0%,
+            100% {
+                box-shadow: 0 0 10px rgba(240, 215, 140, 0.5);
+                transform: rotate(45deg) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(240, 215, 140, 0.9);
+                transform: rotate(45deg) scale(1.5);
+            }
+        }
+
+        /* 毕业帽图标 */
+        .grad-cap-icon {
+            font-size: 50px;
+            animation: bounceCap 2.5s ease-in-out infinite;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+            cursor: default;
+            user-select: none;
+        }
+        @keyframes bounceCap {
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+            15% {
+                transform: translateY(-25px) rotate(2deg);
+            }
+            30% {
+                transform: translateY(0) rotate(-1deg);
+            }
+            45% {
+                transform: translateY(-12px) rotate(3deg);
+            }
+            60% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-6px) rotate(-2deg);
+            }
+            90% {
+                transform: translateY(0) rotate(1deg);
+            }
+        }
+
+        /* 标题 */
+        .invitation-title {
+            text-align: center;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 400;
+            text-shadow: 0 0 30px rgba(240, 215, 140, 0.4);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 邀请函卡片 */
+        .invitation-card {
+            background: linear-gradient(180deg,
+                    #fffef9 0%, #fefcf5 5%, #fdf9ed 15%, #fefbf3 30%,
+                    #fffdf7 50%, #fefaf1 70%, #fdf8ec 85%, #fefcf6 100%);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: var(--shadow-card), 0 0 0 1px rgba(200, 170, 120, 0.25);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+            border: 3px solid rgba(200, 165, 100, 0.4);
+            outline: 8px solid rgba(180, 140, 80, 0.15);
+            outline-offset: 3px;
+        }
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* 卡片内部金色边框装饰 */
+        .card-inner-border {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            border: 1.5px solid rgba(200, 160, 100, 0.35);
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .card-inner-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .card-inner-corner::before,
+        .card-inner-corner::after {
+            content: '';
+            position: absolute;
+            background: var(--gold);
+            border-radius: 1px;
+        }
+        .card-inner-corner.tl {
+            top: 8px;
+            left: 8px;
+        }
+        .card-inner-corner.tr {
+            top: 8px;
+            right: 8px;
+        }
+        .card-inner-corner.bl {
+            bottom: 8px;
+            left: 8px;
+        }
+        .card-inner-corner.br {
+            bottom: 8px;
+            right: 8px;
+        }
+        .card-inner-corner::before {
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+        }
+        .card-inner-corner::after {
+            width: 2px;
+            height: 24px;
+            top: 0;
+            left: 0;
+        }
+        .card-inner-corner.tr::before,
+        .card-inner-corner.br::before {
+            left: auto;
+            right: 0;
+        }
+        .card-inner-corner.tr::after,
+        .card-inner-corner.br::after {
+            left: auto;
+            right: 0;
+        }
+        .card-inner-corner.bl::before,
+        .card-inner-corner.br::before {
+            top: auto;
+            bottom: 0;
+        }
+        .card-inner-corner.bl::after,
+        .card-inner-corner.br::after {
+            top: auto;
+            bottom: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 36px 36px;
+            text-align: center;
+        }
+
+        /* 卡片顶部装饰 */
+        .card-top-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .decor-swiggly {
+            width: 40px;
+            height: 20px;
+            position: relative;
+            overflow: visible;
+        }
+        .decor-swiggly::before {
+            content: '✨';
+            font-size: 18px;
+            animation: sparkleRotate 3s linear infinite;
+        }
+        @keyframes sparkleRotate {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+            }
+        }
+
+        /* 邀请函抬头 */
+        .card-header {
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            color: #8b7355;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        .card-main-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #3d2b1a;
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+            font-family: 'STZhongsong', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+            background: linear-gradient(180deg, #5c3d20 0%, #8b5e3c 50%, #4a2c14 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: #a0845c;
+            margin-bottom: 22px;
+        }
+
+        /* 分割线 */
+        .divider-elegant {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 18px 0;
+        }
+        .divider-elegant .line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            max-width: 60px;
+        }
+        .divider-elegant .dot {
+            width: 6px;
+            height: 6px;
+            background: #c9a96e;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* 姓名高亮区域 */
+        .name-highlight {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b3a2a;
+            letter-spacing: 3px;
+            padding: 6px 20px;
+            border-bottom: 3px dotted #c9a96e;
+            margin: 8px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            font-family: 'STZhongsong', 'Noto Serif SC', 'KaiTi', 'STKaiti', serif;
+            min-width: 60px;
+            cursor: pointer;
+        }
+        .name-highlight:hover {
+            color: #b8452e;
+            border-bottom-color: #b8944f;
+            text-shadow: 0 0 20px rgba(180, 120, 60, 0.3);
+        }
+        .name-highlight.empty-name {
+            color: #c4a882;
+            border-bottom-color: #d4c4a8;
+            font-style: italic;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+        .name-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(255, 200, 100, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: -1;
+            animation: glowPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+        }
+
+        /* 正文 */
+        .card-body-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: #5a4535;
+            letter-spacing: 2px;
+            margin: 16px 0;
+            font-weight: 400;
+        }
+        .card-body-text .em {
+            color: #8b5e3c;
+            font-weight: 600;
+        }
+
+        /* 信息框 */
+        .info-box {
+            background: rgba(245, 235, 215, 0.5);
+            border: 1.5px solid rgba(200, 160, 100, 0.3);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 20px;
+            text-align: left;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #5a4535;
+            letter-spacing: 1px;
+        }
+        .info-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            color: #a0845c;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .info-value {
+            font-weight: 600;
+            color: #3d2b1a;
+            font-size: 0.95rem;
+        }
+
+        /* RSVP 按钮 */
+        .rsvp-hint {
+            font-size: 0.8rem;
+            color: #a09080;
+            letter-spacing: 2px;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        /* 输入区域 */
+        .input-section {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 50px;
+            padding: 8px 8px 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 500px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .input-section:focus-within {
+            border-color: rgba(240, 215, 140, 0.6);
+            box-shadow: 0 8px 40px rgba(200, 160, 80, 0.25), 0 0 0 4px rgba(240, 215, 140, 0.08);
+        }
+        .input-section input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 2px;
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Serif SC', serif;
+            min-width: 0;
+        }
+        .input-section input::placeholder {
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: 1px;
+        }
+        .btn-generate {
+            background: linear-gradient(135deg, #c9a96e 0%, #b8944f 40%, #d4b87a 100%);
+            color: #1a2a4a;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+            box-shadow: 0 6px 20px rgba(180, 140, 70, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-generate:hover {
+            background: linear-gradient(135deg, #d4b87a 0%, #c9a96e 40%, #e0c890 100%);
+            box-shadow: 0 10px 30px rgba(200, 160, 80, 0.55);
+            transform: translateY(-2px);
+        }
+        .btn-generate:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 15px rgba(180, 140, 70, 0.35);
+        }
+        .btn-generate::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .btn-generate:hover::after {
+            opacity: 1;
+        }
+
+        /* 底部按钮区 */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 10px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .btn-outline:hover {
+            border-color: rgba(240, 215, 140, 0.7);
+            color: #f0d78c;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 底部文字 */
+        .footer-note {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        /* Toast提示 */
+        .toast {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120px);
+            background: rgba(40, 30, 15, 0.95);
+            color: #f0d78c;
+            padding: 14px 28px;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            z-index: 999;
+            border: 1px solid rgba(200, 160, 100, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .card-content {
+                padding: 28px 18px 24px;
+            }
+            .card-main-title {
+                font-size: 1.7rem;
+                letter-spacing: 2px;
+            }
+            .name-highlight {
+                font-size: 1.5rem;
+                padding: 4px 14px;
+            }
+            .info-box {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 14px 16px;
+            }
+            .input-section {
+                flex-direction: column;
+                border-radius: 20px;
+                padding: 6px;
+                gap: 6px;
+                background: rgba(255, 255, 255, 0.08);
+            }
+            .input-section input {
+                width: 100%;
+                text-align: center;
+                padding: 10px 14px;
+            }
+            .btn-generate {
+                width: 100%;
+                text-align: center;
+                border-radius: 30px;
+                padding: 12px;
+            }
+            .card-inner-border {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+            }
+            .card-inner-corner {
+                width: 20px;
+                height: 20px;
+            }
+            .card-inner-corner::before {
+                width: 16px;
+                height: 1.5px;
+            }
+            .card-inner-corner::after {
+                width: 1.5px;
+                height: 16px;
+            }
+            .card-inner-corner.tl {
+                top: 4px;
+                left: 4px;
+            }
+            .card-inner-corner.tr {
+                top: 4px;
+                right: 4px;
+            }
+            .card-inner-corner.bl {
+                bottom: 4px;
+                left: 4px;
+            }
+            .card-inner-corner.br {
+                bottom: 4px;
+                right: 4px;
+            }
+            .invitation-card {
+                outline-width: 5px;
+                outline-offset: 2px;
+            }
+        }
+        @media (max-width: 380px) {
+            .card-main-title {
+                font-size: 1.4rem;
+            }
+            .name-highlight {
+                font-size: 1.2rem;
+            }
+            .card-body-text {
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+            }
+            .card-content {
+                padding: 20px 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 星空 -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- 金色粒子 -->
+    <div class="particles-layer" id="particlesLayer"></div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- 主容器 -->
+    <div class="main-wrapper">
+        <!-- 顶部装饰 -->
+        <div class="top-ornament">
+            <span class="ornament-line"></span>
+            <span class="ornament-diamond"></span>
+            <span class="ornament-line"></span>
+            <span class="grad-cap-icon">🎓</span>
+            <span class="ornament-line"></span>
+            <span class="ornament-diamond"></span>
+            <span class="ornament-line"></span>
+        </div>
+
+        <!-- 标题 -->
+        <p class="invitation-title">✧ 毕 业 典 礼 邀 请 函 ✧</p>
+
+        <!-- 邀请函卡片 -->
+        <div class="invitation-card" id="invitationCard">
+            <div class="card-inner-border"></div>
+            <div class="card-inner-corner tl"></div>
+            <div class="card-inner-corner tr"></div>
+            <div class="card-inner-corner bl"></div>
+            <div class="card-inner-corner br"></div>
+            <div class="card-content">
+                <!-- 顶部装饰 -->
+                <div class="card-top-decor">
+                    <span class="decor-swiggly"></span>
+                    <span style="font-size:14px;color:#c9a96e;">❦</span>
+                    <span class="decor-swiggly" style="transform:scaleX(-1);"></span>
+                </div>
+
+                <p class="card-header">诚 挚 邀 请</p>
+                <h1 class="card-main-title">初 中 毕 业 典 礼</h1>
+                <p class="card-subtitle">· 青春不散场 ·</p>
+
+                <div class="divider-elegant">
+                    <span class="line"></span><span class="dot"></span><span class="line"></span>
+                </div>
+
+                <!-- 姓名区域 -->
+                <p class="card-body-text">
+                    亲爱的<br>
+                    <span class="name-highlight empty-name" id="nameDisplay" onclick="focusInput()">
+                        <span class="name-glow"></span>
+                        你的名字
+                    </span><br>
+                    <span style="font-size:0.85rem;">同学 / 家长</span>
+                </p>
+
+                <p class="card-body-text" style="font-size:0.9rem;">
+                    三年时光荏苒，我们共同见证了<br>
+                    每一位<span class="em">少年</span>的成长与蜕变。<br>
+                    在这值得纪念的时刻，<br>
+                    诚挚邀请您出席<br>
+                    <span class="em">2026届初中毕业典礼</span>。
+                </p>
+
+                <div class="divider-elegant">
+                    <span class="line"></span><span class="dot"></span><span class="line"></span>
+                </div>
+
+                <!-- 典礼信息 -->
+                <div class="info-box">
+                    <div class="info-item">
+                        <span class="info-icon">📅</span>
+                        <div>
+                            <div class="info-label">日期</div>
+                            <div class="info-value">2026年7月8日</div>
+                            <div style="font-size:0.75rem;color:#8b7355;">星期三 上午8:30</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <div class="info-label">地点</div>
+                            <div class="info-value">学校礼堂</div>
+                            <div style="font-size:0.75rem;color:#8b7355;">地下一层</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">👔</span>
+                        <div>
+                            <div class="info-label">着装</div>
+                            <div class="info-value">正式着装</div>
+                            <div style="font-size:0.75rem;color:#8b7355;">建议校服出席</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 输入区 -->
+        <div class="input-section" id="inputSection">
+            <input
+            type="text"
+            id="nameInput"
+            placeholder="请输入你的姓名..."
+            maxlength="20"
+            autocomplete="off"
+            >
+            <button class="btn-generate" id="btnGenerate" onclick="updateName()">
+                ✨ 生成邀请函
+            </button>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-buttons">
+            <button class="btn-outline" onclick="captureCard()" title="保存为图片">
+                📸 保存邀请函
+            </button>
+            <button class="btn-outline" onclick="shareInvitation()" title="分享给好友">
+                💬 分享
+            </button>
+            <button class="btn-outline" onclick="resetName()" title="重新填写">
+                🔄 重置
+            </button>
+        </div>
+
+        <p class="footer-note">— 以梦为马 · 不负韶华 —</p>
+    </div>
+
+    <!-- html2canvas 用于截图 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+    </script>
+
+    <script>
+        (function() {
+            // ============ 星空背景 ============
+            const starsContainer = document.getElementById('starsContainer');
+            const starCount = 120;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--dur', (Math.random() * 3 + 2) + 's');
+                star.style.setProperty('--delay', (Math.random() * 5) + 's');
+                starsContainer.appendChild(star);
+            }
+
+            // ============ 金色粒子 ============
+            const particlesLayer = document.getElementById('particlesLayer');
+            const particleCount = 35;
+            for (let i = 0; i < particleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.left = Math.random() * 95 + '%';
+                sparkle.style.setProperty('--float-dur', (Math.random() * 8 + 7) + 's');
+                sparkle.style.setProperty('--float-delay', (Math.random() * 10) + 's');
+                sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+                sparkle.style.height = sparkle.style.width;
+                particlesLayer.appendChild(sparkle);
+            }
+
+            // ============ DOM元素 ============
+            const nameInput = document.getElementById('nameInput');
+            const nameDisplay = document.getElementById('nameDisplay');
+            const btnGenerate = document.getElementById('btnGenerate');
+            const toast = document.getElementById('toast');
+            const invitationCard = document.getElementById('invitationCard');
+
+            // ============ Toast ============
+            let toastTimer;
+
+            function showToast(msg) {
+                clearTimeout(toastTimer);
+                toast.textContent = msg;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2200);
+            }
+
+            // ============ 更新姓名 ============
+            function updateName() {
+                const rawName = nameInput.value.trim();
+                let displayName = rawName;
+
+                if (!displayName) {
+                    // 没有输入，使用默认
+                    nameDisplay.textContent = '你的名字';
+                    nameDisplay.classList.add('empty-name');
+                    nameDisplay.style.fontSize = '';
+                    nameDisplay.style.letterSpacing = '';
+                    showToast('💡 请在输入框中填写姓名哦~');
+                    // 震动卡片提示
+                    invitationCard.style.animation = 'none';
+                    invitationCard.offsetHeight;
+                    invitationCard.style.animation = 'shake 0.5s ease-out';
+                    return;
+                }
+
+                // 更新显示
+                nameDisplay.textContent = displayName;
+                nameDisplay.classList.remove('empty-name');
+                nameDisplay.style.fontSize = '';
+                nameDisplay.style.letterSpacing = '';
+
+                // 根据名字长度调整字号
+                if (displayName.length >= 8) {
+                    nameDisplay.style.fontSize = '1.3rem';
+                    nameDisplay.style.letterSpacing = '1px';
+                } else if (displayName.length >= 5) {
+                    nameDisplay.style.fontSize = '1.6rem';
+                    nameDisplay.style.letterSpacing = '2px';
+                } else {
+                    nameDisplay.style.fontSize = '2rem';
+                    nameDisplay.style.letterSpacing = '3px';
+                }
+
+                // 卡片微动
+                invitationCard.style.animation = 'none';
+                invitationCard.offsetHeight;
+                invitationCard.style.animation = 'cardAppear 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)';
+
+                showToast('✅ 邀请函已生成！' + displayName + '，毕业快乐！🎓');
+            }
+
+            // ============ 重置 ============
+            function resetName() {
+                nameInput.value = '';
+                nameDisplay.textContent = '你的名字';
+                nameDisplay.classList.add('empty-name');
+                nameDisplay.style.fontSize = '';
+                nameDisplay.style.letterSpacing = '';
+                showToast('🔄 已重置，请重新填写姓名');
+                invitationCard.style.animation = 'none';
+                invitationCard.offsetHeight;
+                invitationCard.style.animation = 'cardAppear 0.7s cubic-bezier(0.22, 0.61, 0.36, 1)';
+            }
+
+            // ============ 聚焦输入框 ============
+            function focusInput() {
+                nameInput.focus();
+                nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // ============ 回车键触发 ============
+            nameInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    updateName();
+                }
+            });
+
+            // ============ 实时预览（输入时轻微更新） ============
+            let previewTimeout;
+            nameInput.addEventListener('input', function() {
+                clearTimeout(previewTimeout);
+                const val = nameInput.value.trim();
+                if (val.length > 0) {
+                    previewTimeout = setTimeout(() => {
+                        nameDisplay.textContent = val;
+                        nameDisplay.classList.remove('empty-name');
+                        if (val.length >= 8) {
+                            nameDisplay.style.fontSize = '1.3rem';
+                            nameDisplay.style.letterSpacing = '1px';
+                        } else if (val.length >= 5) {
+                            nameDisplay.style.fontSize = '1.6rem';
+                            nameDisplay.style.letterSpacing = '2px';
+                        } else {
+                            nameDisplay.style.fontSize = '2rem';
+                            nameDisplay.style.letterSpacing = '3px';
+                        }
+                    }, 300);
+                } else {
+                    nameDisplay.textContent = '你的名字';
+                    nameDisplay.classList.add('empty-name');
+                    nameDisplay.style.fontSize = '';
+                    nameDisplay.style.letterSpacing = '';
+                }
+            });
+
+            // ============ 截图保存 ============
+            async function captureCard() {
+                const card = document.getElementById('invitationCard');
+                showToast('📸 正在生成邀请函图片...');
+
+                try {
+                    // 短暂隐藏内部边框的pointer-events干扰
+                    const canvas = await html2canvas(card, {
+                        backgroundColor: '#fefcf5',
+                        scale: 3,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false,
+                        shadow: true,
+                    });
+
+                    // 创建下载链接
+                    const link = document.createElement('a');
+                    const displayName = nameDisplay.textContent.trim();
+                    const fileName = displayName && displayName !== '你的名字' ?
+                        `毕业邀请函_${displayName}.png` :
+                        '毕业邀请函.png';
+                    link.download = fileName;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                    showToast('✅ 邀请函已保存！可以分享给朋友啦~');
+                } catch (err) {
+                    console.error('截图失败:', err);
+                    showToast('⚠️ 保存失败，请重试或使用截图工具');
+                }
+            }
+
+            // ============ 分享 ============
+            function shareInvitation() {
+                const displayName = nameDisplay.textContent.trim();
+                const shareText = displayName && displayName !== '你的名字' ?
+                    `🎓 ${displayName} 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨` :
+                    '🎓 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨';
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: '初中毕业典礼邀请函',
+                        text: shareText,
+                        url: window.location.href,
+                    }).catch(() => {
+                        copyToClipboard(shareText);
+                    });
+                } else {
+                    copyToClipboard(shareText);
+                }
+            }
+
+            function copyToClipboard(text) {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast('📋 邀请文案已复制，可粘贴分享！');
+                    }).catch(() => {
+                        showToast('💬 请截图分享或手动复制文案');
+                    });
+                } else {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.position = 'fixed';
+                    ta.style.left = '-9999px';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    showToast('📋 邀请文案已复制，可粘贴分享！');
+                }
+            }
+
+            // ============ 震动动画 ============
+            const shakeKeyframes = `
+            @keyframes shake {
+              0%, 100% { transform: translateX(0); }
+              15% { transform: translateX(-6px) rotate(-0.5deg); }
+              30% { transform: translateX(5px) rotate(0.4deg); }
+              45% { transform: translateX(-4px) rotate(-0.3deg); }
+              60% { transform: translateX(3px) rotate(0.2deg); }
+              75% { transform: translateX(-2px); }
+              90% { transform: translateX(1px); }
+            }
+          `;
+            const shakeStyle = document.createElement('style');
+            shakeStyle.textContent = shakeKeyframes;
+            document.head.appendChild(shakeStyle);
+
+            // ============ 暴露到全局 ============
+            window.updateName = updateName;
+            window.resetName = resetName;
+            window.focusInput = focusInput;
+            window.captureCard = captureCard;
+            window.shareInvitation = shareInvitation;
+
+            // ============ 页面加载完成 ============
+            console.log('🎓✨ 初中毕业典礼电子邀请函已就绪！');
+            console.log('💡 提示：在输入框中填写姓名，点击生成按钮或按回车键即可');
+            console.log('📸 点击"保存邀请函"可下载为高清图片');
+            console.log('💬 点击"分享"可复制邀请文案');
+
+            // 自动聚焦输入框（延迟一下让页面先渲染）
+            setTimeout(() => {
+                nameInput.focus();
+            }, 600);
+        })();
+    </script>
+</body>
+</html>
