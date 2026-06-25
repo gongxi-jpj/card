@@ -1292,13 +1292,21 @@
         /* 保存图片的隐藏容器 */
         .share-image-container {
             position: fixed;
-            top: -9999px;
-            left: -9999px;
+            top: 0;
+            left: 0;
             width: 750px;
             height: 1050px;
             background: linear-gradient(160deg, #1a2744 0%, #1e3255 20%, #243b60 40%, #1a2a4a 60%, #152238 80%, #0f1b30 100%);
             padding: 40px;
             z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .share-image-container.visible {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
         }
         .share-card-inner {
             width: 100%;
@@ -1949,8 +1957,7 @@
 
                 try {
                     // 显示隐藏的容器
-                    imageContainer.style.top = '0';
-                    imageContainer.style.left = '0';
+                    imageContainer.classList.add('visible');
 
                     // 等待 QRCode 生成
                     await new Promise(resolve => setTimeout(resolve, 100));
@@ -1969,12 +1976,11 @@
                     previewCanvas.width = 400;
                     previewCanvas.height = 400 * ratio;
                     ctx.drawImage(canvas, 0, 0, previewCanvas.width, previewCanvas.height);
-
-                    // 重新隐藏容器
-                    imageContainer.style.top = '-9999px';
-                    imageContainer.style.left = '-9999px';
                 } catch (err) {
                     console.error('生成预览失败:', err);
+                } finally {
+                    // 重新隐藏容器
+                    imageContainer.classList.remove('visible');
                 }
             }
 
@@ -1988,8 +1994,7 @@
                     const cardInner = document.getElementById('shareCardInner');
 
                     // 显示隐藏的容器
-                    imageContainer.style.top = '0';
-                    imageContainer.style.left = '0';
+                    imageContainer.classList.add('visible');
 
                     // 等待 QRCode 生成
                     await new Promise(resolve => setTimeout(resolve, 200));
@@ -2012,10 +2017,6 @@
                     link.href = canvas.toDataURL('image/png', 1.0);
                     link.click();
 
-                    // 重新隐藏容器
-                    imageContainer.style.top = '-9999px';
-                    imageContainer.style.left = '-9999px';
-
                     progress.classList.remove('active');
                     closeShareModal();
                     showToast('✅ 分享图片已保存！');
@@ -2023,6 +2024,10 @@
                     console.error('下载失败:', err);
                     progress.classList.remove('active');
                     showToast('⚠️ 生成图片失败，请重试');
+                } finally {
+                    // 重新隐藏容器
+                    const imageContainer = document.getElementById('shareImageContainer');
+                    imageContainer.classList.remove('visible');
                 }
             }
 
