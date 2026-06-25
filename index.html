@@ -1050,6 +1050,356 @@
                 padding: 20px 12px 18px;
             }
         }
+
+        /* ============ 分享弹窗样式 ============ */
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .share-modal.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .share-modal-content {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f4eb 100%);
+            border-radius: 24px;
+            padding: 30px 24px 24px;
+            width: 90%;
+            max-width: 420px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+            animation: slideUp 0.35s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .share-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: rgba(180, 150, 100, 0.15);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #8a7055;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .share-modal-close:hover {
+            background: rgba(180, 150, 100, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .share-modal-title {
+            text-align: center;
+            color: #3d2e1e;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 3px;
+        }
+
+        /* 分享图片预览 */
+        .share-preview-section {
+            background: linear-gradient(135deg, #faf6ee 0%, #f5efe3 100%);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(180, 150, 100, 0.2);
+        }
+        .share-preview-canvas {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 分享链接区域 */
+        .share-link-section {
+            margin-bottom: 20px;
+        }
+        .share-link-label {
+            font-size: 0.85rem;
+            color: #8a7055;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .share-link-box {
+            display: flex;
+            gap: 8px;
+        }
+        .share-link-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(180, 150, 100, 0.3);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            color: #3d2e1e;
+            outline: none;
+            font-family: inherit;
+        }
+        .share-link-input:focus {
+            border-color: #c9a96e;
+        }
+        .btn-copy-link {
+            background: linear-gradient(135deg, #c9a96e 0%, #b8944f 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .btn-copy-link:hover {
+            background: linear-gradient(135deg, #d4b87a 0%, #c9a96e 100%);
+            transform: translateY(-1px);
+        }
+
+        /* 二维码区域 */
+        .share-qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .share-qr-label {
+            font-size: 0.85rem;
+            color: #8a7055;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .share-qr-container {
+            background: #fff;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        #shareQRCode {
+            display: block;
+        }
+        #shareQRCode img {
+            display: block;
+        }
+
+        /* 社交平台分享 */
+        .share-platforms {
+            margin-top: 8px;
+        }
+        .share-platforms-title {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8a7055;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+        .share-platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .share-platform-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(180, 150, 100, 0.15);
+        }
+        .share-platform-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .share-platform-btn:active {
+            transform: scale(0.95);
+        }
+        .platform-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .platform-icon.wechat { background: linear-gradient(135deg, #07c160, #06ad56); }
+        .platform-icon.moments { background: linear-gradient(135deg, #ff9500, #ff6b00); }
+        .platform-icon.qq { background: linear-gradient(135deg, #12b7f5, #0e9ae8); }
+        .platform-icon.weibo { background: linear-gradient(135deg, #e6162d, #cf102d); }
+        .platform-icon.copy { background: linear-gradient(135deg, #c9a96e, #b8944f); }
+        .platform-icon.download { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .platform-icon.save { background: linear-gradient(135deg, #11998e, #0d8a75); }
+        .platform-icon.link { background: linear-gradient(135deg, #6c757d, #5a6268); }
+
+        .platform-name {
+            font-size: 0.7rem;
+            color: #5a4535;
+            letter-spacing: 0.5px;
+        }
+
+        /* 下载进度提示 */
+        .download-progress {
+            display: none;
+            text-align: center;
+            padding: 16px;
+            color: #8a7055;
+            font-size: 0.9rem;
+        }
+        .download-progress.active {
+            display: block;
+        }
+        .download-progress-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(180, 150, 100, 0.2);
+            border-top-color: #c9a96e;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* 保存图片的隐藏容器 */
+        .share-image-container {
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            width: 750px;
+            height: 1050px;
+            background: linear-gradient(160deg, #1a2744 0%, #1e3255 20%, #243b60 40%, #1a2a4a 60%, #152238 80%, #0f1b30 100%);
+            padding: 40px;
+            z-index: -1;
+        }
+        .share-card-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 253, 247, 0.97) 0%, rgba(254, 249, 237, 0.95) 100%);
+            border-radius: 24px;
+            border: 3px solid rgba(180, 150, 100, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .share-card-inner::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid rgba(180, 150, 100, 0.25);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+        .share-card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .share-card-ornament {
+            font-size: 1.5rem;
+            color: #c9a96e;
+            margin-bottom: 8px;
+        }
+        .share-card-title {
+            font-size: 2.2rem;
+            color: #3d2e1e;
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin-bottom: 4px;
+        }
+        .share-card-subtitle {
+            font-size: 1rem;
+            color: #8a7055;
+            letter-spacing: 4px;
+        }
+        .share-card-divider {
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            margin: 16px 0;
+        }
+        .share-card-body {
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .share-card-guest {
+            font-size: 1rem;
+            color: #6b5a45;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .share-card-name {
+            font-size: 2.8rem;
+            color: #3d2e1e;
+            font-weight: 700;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(180, 150, 100, 0.2);
+        }
+        .share-card-info {
+            font-size: 1rem;
+            color: #5a4535;
+            letter-spacing: 2px;
+            line-height: 2;
+        }
+        .share-card-footer {
+            margin-top: auto;
+            text-align: center;
+        }
+        .share-card-footer-text {
+            font-size: 0.9rem;
+            color: #8a7055;
+            letter-spacing: 3px;
+        }
+        .share-card-qr {
+            margin-top: 16px;
+        }
+        .share-card-qr img {
+            display: block;
+        }
+        .share-card-bottom {
+            margin-top: 16px;
+            text-align: center;
+            color: #a09080;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
@@ -1062,6 +1412,109 @@
 
     <!-- Toast -->
     <div class="toast" id="toast"></div>
+
+    <!-- 分享弹窗 -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-content">
+            <button class="share-modal-close" onclick="closeShareModal()">✕</button>
+            <h3 class="share-modal-title">分 享 邀 请 函</h3>
+
+            <!-- 图片预览 -->
+            <div class="share-preview-section">
+                <canvas id="sharePreviewCanvas" class="share-preview-canvas"></canvas>
+            </div>
+
+            <!-- 分享链接 -->
+            <div class="share-link-section">
+                <div class="share-link-label">分享链接</div>
+                <div class="share-link-box">
+                    <input type="text" class="share-link-input" id="shareLinkInput" readonly>
+                    <button class="btn-copy-link" onclick="copyShareLink()">复制链接</button>
+                </div>
+            </div>
+
+            <!-- 二维码 -->
+            <div class="share-qr-section">
+                <div class="share-qr-label">手机扫码查看</div>
+                <div class="share-qr-container">
+                    <div id="shareQRCode"></div>
+                </div>
+            </div>
+
+            <!-- 社交平台 -->
+            <div class="share-platforms">
+                <div class="share-platforms-title">分享到</div>
+                <div class="share-platforms-grid">
+                    <button class="share-platform-btn" onclick="shareToWechat()">
+                        <div class="platform-icon wechat">💬</div>
+                        <span class="platform-name">微信</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="shareToMoments()">
+                        <div class="platform-icon moments">📱</div>
+                        <span class="platform-name">朋友圈</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="shareToQQ()">
+                        <div class="platform-icon qq">🐧</div>
+                        <span class="platform-name">QQ</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="shareToWeibo()">
+                        <div class="platform-icon weibo">🌐</div>
+                        <span class="platform-name">微博</span>
+                    </button>
+                </div>
+                <div class="share-platforms-grid" style="margin-top: 12px;">
+                    <button class="share-platform-btn" onclick="downloadShareImage()">
+                        <div class="platform-icon download">📥</div>
+                        <span class="platform-name">下载图片</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="downloadShareQR()">
+                        <div class="platform-icon save">📷</div>
+                        <span class="platform-name">下载二维码</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="copyShareLink()">
+                        <div class="platform-icon link">🔗</div>
+                        <span class="platform-name">复制链接</span>
+                    </button>
+                    <button class="share-platform-btn" onclick="shareNative()">
+                        <div class="platform-icon copy">📤</div>
+                        <span class="platform-name">系统分享</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 下载进度 -->
+            <div class="download-progress" id="downloadProgress">
+                <div class="download-progress-spinner"></div>
+                <span>正在生成图片...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐藏的分享图片容器 -->
+    <div class="share-image-container" id="shareImageContainer">
+        <div class="share-card-inner" id="shareCardInner">
+            <div class="share-card-header">
+                <div class="share-card-ornament">🎓</div>
+                <div class="share-card-title">初中毕业典礼</div>
+                <div class="share-card-subtitle">诚挚邀请</div>
+            </div>
+            <div class="share-card-divider"></div>
+            <div class="share-card-body">
+                <div class="share-card-guest">亲爱的</div>
+                <div class="share-card-name" id="shareCardName">你的名字</div>
+                <div class="share-card-info">
+                    诚邀您出席2026届初中毕业典礼<br>
+                    📅 2026年7月8日<br>
+                    📍 学校大礼堂
+                </div>
+            </div>
+            <div class="share-card-footer">
+                <div class="share-card-footer-text">— 以梦为马 · 不负韶华 —</div>
+                <div class="share-card-qr" id="shareCardQR"></div>
+            </div>
+            <div class="share-card-bottom">长按识别二维码查看邀请函</div>
+        </div>
+    </div>
 
     <!-- 主容器 -->
     <div class="main-wrapper">
@@ -1230,6 +1683,10 @@
 
     <!-- html2canvas 用于截图 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+    </script>
+
+    <!-- QRCode.js 用于生成二维码 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
     </script>
 
     <script>
@@ -1415,8 +1872,221 @@
                 }
             }
 
-            // ============ 分享 ============
-            function shareInvitation() {
+            // ============ 分享功能 ============
+            let shareQRCodeInstance = null;
+
+            // 打开分享弹窗
+            function openShareModal() {
+                const modal = document.getElementById('shareModal');
+                modal.classList.add('active');
+
+                // 更新分享链接
+                const shareLinkInput = document.getElementById('shareLinkInput');
+                shareLinkInput.value = window.location.href;
+
+                // 更新分享图片中的姓名
+                const shareCardName = document.getElementById('shareCardName');
+                const displayName = nameDisplay.textContent.trim();
+                shareCardName.textContent = displayName && displayName !== '你的名字' ? displayName : '你的名字';
+
+                // 生成/更新二维码
+                generateShareQRCode();
+
+                // 生成预览图片
+                generateSharePreview();
+            }
+
+            // 关闭分享弹窗
+            function closeShareModal() {
+                const modal = document.getElementById('shareModal');
+                modal.classList.remove('active');
+            }
+
+            // 点击背景关闭弹窗
+            document.getElementById('shareModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeShareModal();
+                }
+            });
+
+            // 生成二维码
+            function generateShareQRCode() {
+                const qrContainer = document.getElementById('shareQRCode');
+                const cardQRContainer = document.getElementById('shareCardQR');
+
+                // 清空现有二维码
+                qrContainer.innerHTML = '';
+                cardQRContainer.innerHTML = '';
+
+                const url = window.location.href;
+
+                // 生成弹窗中的二维码
+                shareQRCodeInstance = new QRCode(qrContainer, {
+                    text: url,
+                    width: 160,
+                    height: 160,
+                    colorDark: '#3d2e1e',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+
+                // 生成分享图片中的二维码
+                new QRCode(cardQRContainer, {
+                    text: url,
+                    width: 100,
+                    height: 100,
+                    colorDark: '#3d2e1e',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
+
+            // 生成分享预览图片
+            async function generateSharePreview() {
+                const previewCanvas = document.getElementById('sharePreviewCanvas');
+                const imageContainer = document.getElementById('shareImageContainer');
+                const cardInner = document.getElementById('shareCardInner');
+
+                try {
+                    // 显示隐藏的容器
+                    imageContainer.style.top = '0';
+                    imageContainer.style.left = '0';
+
+                    // 等待 QRCode 生成
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    const canvas = await html2canvas(cardInner, {
+                        backgroundColor: null,
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false
+                    });
+
+                    // 设置预览画布
+                    const ctx = previewCanvas.getContext('2d');
+                    const ratio = canvas.height / canvas.width;
+                    previewCanvas.width = 400;
+                    previewCanvas.height = 400 * ratio;
+                    ctx.drawImage(canvas, 0, 0, previewCanvas.width, previewCanvas.height);
+
+                    // 重新隐藏容器
+                    imageContainer.style.top = '-9999px';
+                    imageContainer.style.left = '-9999px';
+                } catch (err) {
+                    console.error('生成预览失败:', err);
+                }
+            }
+
+            // 下载分享图片
+            async function downloadShareImage() {
+                const progress = document.getElementById('downloadProgress');
+                progress.classList.add('active');
+
+                try {
+                    const imageContainer = document.getElementById('shareImageContainer');
+                    const cardInner = document.getElementById('shareCardInner');
+
+                    // 显示隐藏的容器
+                    imageContainer.style.top = '0';
+                    imageContainer.style.left = '0';
+
+                    // 等待 QRCode 生成
+                    await new Promise(resolve => setTimeout(resolve, 200));
+
+                    const canvas = await html2canvas(cardInner, {
+                        backgroundColor: null,
+                        scale: 3,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false
+                    });
+
+                    // 创建下载链接
+                    const link = document.createElement('a');
+                    const displayName = nameDisplay.textContent.trim();
+                    const fileName = displayName && displayName !== '你的名字' ?
+                        `毕业邀请函_${displayName}.png` :
+                        '毕业邀请函.png';
+                    link.download = fileName;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+
+                    // 重新隐藏容器
+                    imageContainer.style.top = '-9999px';
+                    imageContainer.style.left = '-9999px';
+
+                    progress.classList.remove('active');
+                    closeShareModal();
+                    showToast('✅ 分享图片已保存！');
+                } catch (err) {
+                    console.error('下载失败:', err);
+                    progress.classList.remove('active');
+                    showToast('⚠️ 生成图片失败，请重试');
+                }
+            }
+
+            // 下载二维码图片
+            function downloadShareQR() {
+                const qrContainer = document.getElementById('shareQRCode');
+                const qrCanvas = qrContainer.querySelector('canvas');
+
+                if (qrCanvas) {
+                    const link = document.createElement('a');
+                    link.download = '邀请函二维码.png';
+                    link.href = qrCanvas.toDataURL('image/png', 1.0);
+                    link.click();
+                    closeShareModal();
+                    showToast('✅ 二维码已保存！');
+                } else {
+                    showToast('⚠️ 请稍后再试');
+                }
+            }
+
+            // 复制分享链接
+            function copyShareLink() {
+                const link = window.location.href;
+                copyToClipboard(link);
+            }
+
+            // 分享到微信（提示使用系统分享）
+            function shareToWechat() {
+                if (navigator.share) {
+                    shareNative();
+                } else {
+                    showToast('💡 请截图分享到微信朋友圈');
+                }
+            }
+
+            // 分享到朋友圈（提示下载图片）
+            function shareToMoments() {
+                downloadShareImage();
+            }
+
+            // 分享到 QQ
+            function shareToQQ() {
+                const displayName = nameDisplay.textContent.trim();
+                const shareText = displayName && displayName !== '你的名字' ?
+                    `🎓 ${displayName} 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨` :
+                    '🎓 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨';
+
+                const url = encodeURIComponent(window.location.href);
+                window.open(`https://connect.qq.com/widget/shareqq/index.html?url=${url}&title=初中毕业典礼邀请函&desc=${encodeURIComponent(shareText)}`, '_blank');
+            }
+
+            // 分享到微博
+            function shareToWeibo() {
+                const displayName = nameDisplay.textContent.trim();
+                const shareText = displayName && displayName !== '你的名字' ?
+                    `🎓 ${displayName} 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨` :
+                    '🎓 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨';
+
+                const url = encodeURIComponent(window.location.href);
+                window.open(`https://service.weibo.com/share/share.php?url=${url}&title=${encodeURIComponent(shareText)}`, '_blank');
+            }
+
+            // 系统原生分享
+            function shareNative() {
                 const displayName = nameDisplay.textContent.trim();
                 const shareText = displayName && displayName !== '你的名字' ?
                     `🎓 ${displayName} 诚挚邀请您出席2026届初中毕业典礼！📅 7月8日 · 学校大礼堂 ✨` :
@@ -1427,20 +2097,28 @@
                         title: '初中毕业典礼邀请函',
                         text: shareText,
                         url: window.location.href,
+                    }).then(() => {
+                        closeShareModal();
                     }).catch(() => {
-                        copyToClipboard(shareText);
+                        // 用户取消分享，复制链接
+                        copyShareLink();
                     });
                 } else {
-                    copyToClipboard(shareText);
+                    copyShareLink();
                 }
+            }
+
+            // 原有的分享邀请函数，现在打开弹窗
+            function shareInvitation() {
+                openShareModal();
             }
 
             function copyToClipboard(text) {
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(text).then(() => {
-                        showToast('📋 邀请文案已复制，可粘贴分享！');
+                        showToast('📋 已复制到剪贴板！');
                     }).catch(() => {
-                        showToast('💬 请截图分享或手动复制文案');
+                        showToast('💬 复制失败，请手动复制');
                     });
                 } else {
                     const ta = document.createElement('textarea');
@@ -1451,7 +2129,7 @@
                     ta.select();
                     document.execCommand('copy');
                     document.body.removeChild(ta);
-                    showToast('📋 邀请文案已复制，可粘贴分享！');
+                    showToast('📋 已复制到剪贴板！');
                 }
             }
 
@@ -1645,7 +2323,7 @@
             console.log('🎓✨ 初中毕业典礼电子邀请函已就绪！');
             console.log('💡 提示：在输入框中填写姓名，点击生成按钮或按回车键即可');
             console.log('📸 点击"保存邀请函"可下载为高清图片');
-            console.log('💬 点击"分享"可复制邀请文案');
+            console.log('💬 点击"分享"可打开分享面板，支持生成二维码和分享图片');
             console.log('💌 留言墙已就绪，欢迎留下你的祝福~');
 
             // 渲染留言
