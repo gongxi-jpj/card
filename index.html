@@ -1292,21 +1292,24 @@
         /* 保存图片的隐藏容器 */
         .share-image-container {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: -9999px;
+            left: -9999px;
             width: 750px;
             height: 1050px;
             background: linear-gradient(160deg, #1a2744 0%, #1e3255 20%, #243b60 40%, #1a2a4a 60%, #152238 80%, #0f1b30 100%);
             padding: 40px;
-            z-index: -1;
+            z-index: -9999;
             visibility: hidden;
             opacity: 0;
             pointer-events: none;
         }
         .share-image-container.visible {
+            top: 0;
+            left: 0;
             visibility: visible;
             opacity: 1;
             z-index: 1;
+            pointer-events: none;
         }
         .share-card-inner {
             width: 100%;
@@ -1908,12 +1911,30 @@
             function closeShareModal() {
                 const modal = document.getElementById('shareModal');
                 modal.classList.remove('active');
+                // 确保隐藏分享图片容器
+                const imageContainer = document.getElementById('shareImageContainer');
+                if (imageContainer) {
+                    imageContainer.classList.remove('visible');
+                }
             }
 
             // 点击背景关闭弹窗
             document.getElementById('shareModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeShareModal();
+                }
+            });
+
+            // 关闭按钮事件
+            document.querySelector('.share-modal-close').addEventListener('click', closeShareModal);
+
+            // ESC 键关闭弹窗
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('shareModal');
+                    if (modal.classList.contains('active')) {
+                        closeShareModal();
+                    }
                 }
             });
 
