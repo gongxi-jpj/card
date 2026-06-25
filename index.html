@@ -1419,7 +1419,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #5c1a1a 0%, #7a1f1f 25%, #8b2323 50%, #7a1f1f 75%, #5c1a1a 100%);
+            background: linear-gradient(160deg, #1a2744 0%, #1e3255 20%, #243b60 40%, #1a2a4a 60%, #152238 80%, #0f1b30 100%);
             z-index: 99999;
             display: flex;
             align-items: center;
@@ -1445,7 +1445,7 @@
         .cover-sparkle {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 215, 100, 0.9) 0%, rgba(255, 180, 50, 0.4) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(240, 215, 140, 0.9) 0%, rgba(200, 170, 110, 0.4) 40%, transparent 70%);
             animation: coverFloat var(--float-dur) ease-in-out infinite;
             animation-delay: var(--float-delay);
             opacity: 0;
@@ -1488,7 +1488,7 @@
             position: absolute;
             width: 60px;
             height: 60px;
-            border: 2px solid rgba(212, 175, 55, 0.7);
+            border: 2px solid rgba(240, 215, 140, 0.7);
         }
         .frame-corner.tl {
             top: 20px;
@@ -1524,21 +1524,21 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ffd700 0%, #daa520 50%, #b8860b 100%);
+            background: linear-gradient(135deg, #f0d78c 0%, #c9a96e 50%, #b8944f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 30px;
-            box-shadow: 0 0 40px rgba(255, 200, 50, 0.5), 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 40px rgba(240, 215, 140, 0.5), 0 8px 30px rgba(0, 0, 0, 0.3);
             animation: capPulse 3s ease-in-out infinite;
         }
         @keyframes capPulse {
             0%, 100% {
-                box-shadow: 0 0 40px rgba(255, 200, 50, 0.5), 0 8px 30px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 0 40px rgba(240, 215, 140, 0.5), 0 8px 30px rgba(0, 0, 0, 0.3);
                 transform: scale(1);
             }
             50% {
-                box-shadow: 0 0 60px rgba(255, 200, 50, 0.7), 0 8px 40px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 0 60px rgba(240, 215, 140, 0.7), 0 8px 40px rgba(0, 0, 0, 0.4);
                 transform: scale(1.05);
             }
         }
@@ -1550,11 +1550,11 @@
         /* 学校名称 */
         .cover-school {
             font-size: 1.8rem;
-            color: #ffd700;
+            color: var(--gold-light);
             letter-spacing: 6px;
             margin-bottom: 12px;
             font-family: 'STZhongsong', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
-            text-shadow: 0 2px 10px rgba(255, 200, 50, 0.4);
+            text-shadow: 0 2px 10px rgba(240, 215, 140, 0.4);
             animation: fadeInDown 1s ease-out 0.2s both;
         }
 
@@ -1562,7 +1562,7 @@
         .cover-divider {
             width: 80px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #daa520, transparent);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
             margin-bottom: 20px;
             animation: fadeIn 1s ease-out 0.4s both;
         }
@@ -1570,17 +1570,17 @@
         /* 大标题 */
         .cover-title {
             font-size: 4rem;
-            color: #ffd700;
+            color: var(--gold-light);
             font-weight: 700;
             letter-spacing: 12px;
             margin-bottom: 20px;
             font-family: 'STZhongsong', 'Noto Serif SC', 'KaiTi', 'STKaiti', serif;
-            background: linear-gradient(180deg, #fff5b0 0%, #ffd700 40%, #daa520 70%, #b8860b 100%);
+            background: linear-gradient(180deg, #fff5d4 0%, #f0d78c 40%, #c9a96e 70%, #b8944f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: none;
-            filter: drop-shadow(0 4px 12px rgba(255, 200, 50, 0.5));
+            filter: drop-shadow(0 4px 12px rgba(240, 215, 140, 0.5));
             animation: titleZoom 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.5s both;
         }
         @keyframes titleZoom {
@@ -1599,7 +1599,7 @@
         /* 届/班 */
         .cover-year {
             font-size: 2.2rem;
-            color: #fff5cc;
+            color: #f5ecd4;
             letter-spacing: 8px;
             margin-bottom: 4px;
             font-family: 'STZhongsong', 'Noto Serif SC', 'SimSun', serif;
@@ -1607,7 +1607,7 @@
         }
         .cover-class {
             font-size: 1.8rem;
-            color: #ffd700;
+            color: var(--gold-light);
             letter-spacing: 6px;
             margin-bottom: 24px;
             font-family: 'STZhongsong', 'Noto Serif SC', 'SimSun', serif;
@@ -1625,20 +1625,20 @@
         .cover-english-line {
             width: 40px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.6), transparent);
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.6), transparent);
         }
         .cover-english-text {
             font-size: 1.1rem;
-            color: rgba(255, 215, 0, 0.8);
+            color: rgba(240, 215, 140, 0.8);
             letter-spacing: 4px;
             font-family: 'Times New Roman', serif;
         }
 
         /* 开启按钮 */
         .cover-btn {
-            background: linear-gradient(135deg, rgba(139, 35, 35, 0.6) 0%, rgba(122, 31, 31, 0.6) 100%);
-            color: #ffd700;
-            border: 2px solid #daa520;
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.2) 0%, rgba(180, 145, 70, 0.15) 100%);
+            color: var(--gold-light);
+            border: 2px solid var(--accent);
             padding: 16px 60px;
             border-radius: 50px;
             font-size: 1.4rem;
@@ -1646,15 +1646,15 @@
             cursor: pointer;
             font-family: 'STZhongsong', 'Noto Serif SC', 'SimSun', serif;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 20px rgba(255, 200, 50, 0.3), inset 0 0 20px rgba(255, 200, 50, 0.1);
+            box-shadow: 0 4px 20px rgba(200, 160, 80, 0.3), inset 0 0 20px rgba(240, 215, 140, 0.1);
             animation: btnAppear 1s ease-out 1.4s both, btnGlow 2.5s ease-in-out infinite 2s;
             position: relative;
             overflow: hidden;
         }
         .cover-btn:hover {
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.3) 0%, rgba(255, 215, 0, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(240, 215, 140, 0.3) 0%, rgba(201, 169, 110, 0.2) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 200, 50, 0.5), inset 0 0 30px rgba(255, 200, 50, 0.2);
+            box-shadow: 0 8px 30px rgba(200, 160, 80, 0.5), inset 0 0 30px rgba(240, 215, 140, 0.2);
         }
         .cover-btn:active {
             transform: scale(0.97);
@@ -1671,10 +1671,10 @@
         }
         @keyframes btnGlow {
             0%, 100% {
-                box-shadow: 0 4px 20px rgba(255, 200, 50, 0.3), inset 0 0 20px rgba(255, 200, 50, 0.1);
+                box-shadow: 0 4px 20px rgba(200, 160, 80, 0.3), inset 0 0 20px rgba(240, 215, 140, 0.1);
             }
             50% {
-                box-shadow: 0 4px 35px rgba(255, 200, 50, 0.6), inset 0 0 30px rgba(255, 200, 50, 0.2);
+                box-shadow: 0 4px 35px rgba(200, 160, 80, 0.6), inset 0 0 30px rgba(240, 215, 140, 0.2);
             }
         }
 
@@ -1688,7 +1688,7 @@
         }
         .cover-scroll-icon {
             font-size: 1.5rem;
-            color: rgba(255, 215, 0, 0.6);
+            color: rgba(240, 215, 140, 0.6);
         }
         @keyframes scrollBounce {
             0%, 100% {
