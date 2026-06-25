@@ -634,6 +634,262 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* 留言墙 */
+        .message-wall-section {
+            width: 100%;
+            max-width: 750px;
+            margin-top: 10px;
+        }
+        .message-wall-title {
+            text-align: center;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(240, 215, 140, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .message-wall-title::before,
+        .message-wall-title::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+        }
+
+        /* 留言输入区 */
+        .message-input-area {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+        .message-input-area:focus-within {
+            border-color: rgba(240, 215, 140, 0.5);
+            box-shadow: 0 8px 40px rgba(200, 160, 80, 0.2), 0 0 0 4px rgba(240, 215, 140, 0.06);
+        }
+        .message-input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .message-nickname-input {
+            flex: 1;
+            min-width: 120px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .message-nickname-input:focus {
+            border-color: rgba(240, 215, 140, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .message-nickname-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .message-content-textarea {
+            width: 100%;
+            min-height: 80px;
+            max-height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: #fff;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+            outline: none;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        .message-content-textarea:focus {
+            border-color: rgba(240, 215, 140, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .message-content-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .message-submit-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 12px;
+        }
+        .btn-submit-message {
+            background: linear-gradient(135deg, #c9a96e 0%, #b8944f 40%, #d4b87a 100%);
+            color: #1a2a4a;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+            box-shadow: 0 4px 16px rgba(180, 140, 70, 0.35);
+        }
+        .btn-submit-message:hover {
+            background: linear-gradient(135deg, #d4b87a 0%, #c9a96e 40%, #e0c890 100%);
+            box-shadow: 0 6px 24px rgba(200, 160, 80, 0.5);
+            transform: translateY(-1px);
+        }
+        .btn-submit-message:active {
+            transform: scale(0.97);
+        }
+
+        /* 留言列表 */
+        .messages-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .messages-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .messages-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+        .messages-container::-webkit-scrollbar-thumb {
+            background: rgba(240, 215, 140, 0.3);
+            border-radius: 3px;
+        }
+        .messages-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(240, 215, 140, 0.5);
+        }
+
+        .message-card {
+            background: linear-gradient(135deg,
+                    rgba(255, 253, 247, 0.95) 0%,
+                    rgba(254, 249, 237, 0.92) 100%);
+            border-radius: 12px;
+            padding: 16px 18px;
+            border: 1px solid rgba(200, 165, 100, 0.35);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            position: relative;
+            animation: messageAppear 0.4s ease-out;
+            transition: all 0.3s ease;
+        }
+        .message-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .message-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .message-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c9a96e, #b8944f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .message-nickname {
+            font-weight: 600;
+            color: #5c3d20;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+        .message-time {
+            font-size: 0.75rem;
+            color: #a0845c;
+            letter-spacing: 1px;
+        }
+        .message-content {
+            color: #5a4535;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            letter-spacing: 1px;
+            word-break: break-word;
+        }
+        .message-delete-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: rgba(160, 132, 92, 0.5);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            opacity: 0;
+        }
+        .message-card:hover .message-delete-btn {
+            opacity: 1;
+        }
+        .message-delete-btn:hover {
+            color: #b8452e;
+            background: rgba(184, 69, 46, 0.1);
+        }
+
+        .empty-messages {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+        .empty-messages-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .message-count {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
         /* 底部文字 */
         .footer-note {
             color: rgba(255, 255, 255, 0.4);
@@ -738,6 +994,45 @@
             .invitation-card {
                 outline-width: 5px;
                 outline-offset: 2px;
+            }
+            .message-wall-title {
+                font-size: 1rem;
+                letter-spacing: 4px;
+            }
+            .message-input-area {
+                padding: 14px;
+                border-radius: 12px;
+            }
+            .message-nickname-input {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+            .message-content-textarea {
+                font-size: 0.85rem;
+                padding: 10px 12px;
+                min-height: 60px;
+            }
+            .btn-submit-message {
+                width: 100%;
+                padding: 10px;
+            }
+            .message-submit-row {
+                justify-content: center;
+            }
+            .message-card {
+                padding: 12px 14px;
+            }
+            .message-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+            .message-nickname {
+                font-size: 0.85rem;
+            }
+            .message-content {
+                font-size: 0.85rem;
+                line-height: 1.6;
             }
         }
         @media (max-width: 380px) {
@@ -885,6 +1180,49 @@
             <button class="btn-outline" onclick="resetName()" title="重新填写">
                 🔄 重置
             </button>
+        </div>
+
+        <!-- 留言墙 -->
+        <div class="message-wall-section">
+            <p class="message-wall-title">✦ 留 言 墙 ✦</p>
+
+            <!-- 留言输入区 -->
+            <div class="message-input-area">
+                <div class="message-input-row">
+                    <input
+                        type="text"
+                        id="messageNickname"
+                        class="message-nickname-input"
+                        placeholder="你的昵称..."
+                        maxlength="20"
+                        autocomplete="off"
+                    >
+                </div>
+                <textarea
+                    id="messageContent"
+                    class="message-content-textarea"
+                    placeholder="写下你的毕业寄语、祝福或感言..."
+                    maxlength="500"
+                ></textarea>
+                <div class="message-submit-row">
+                    <button class="btn-submit-message" onclick="submitMessage()">
+                        ✨ 发布留言
+                    </button>
+                </div>
+            </div>
+
+            <!-- 留言统计 -->
+            <div class="message-count" id="messageCount">
+                共 0 条留言
+            </div>
+
+            <!-- 留言列表 -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="empty-messages" id="emptyMessages">
+                    <div class="empty-messages-icon">💌</div>
+                    还没有留言，快来留下第一条祝福吧~
+                </div>
+            </div>
         </div>
 
         <p class="footer-note">— 以梦为马 · 不负韶华 —</p>
@@ -1133,18 +1471,185 @@
             shakeStyle.textContent = shakeKeyframes;
             document.head.appendChild(shakeStyle);
 
+            // ============ 留言墙功能 ============
+            const STORAGE_KEY = 'graduation_messages';
+            const messageNickname = document.getElementById('messageNickname');
+            const messageContent = document.getElementById('messageContent');
+            const messagesContainer = document.getElementById('messagesContainer');
+            const emptyMessages = document.getElementById('emptyMessages');
+            const messageCount = document.getElementById('messageCount');
+
+            // 加载留言
+            function loadMessages() {
+                try {
+                    const saved = localStorage.getItem(STORAGE_KEY);
+                    return saved ? JSON.parse(saved) : [];
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            // 保存留言
+            function saveMessages(messages) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+                } catch (e) {
+                    console.error('保存留言失败:', e);
+                }
+            }
+
+            // 格式化时间
+            function formatTime(timestamp) {
+                const date = new Date(timestamp);
+                const now = new Date();
+                const diff = now - date;
+
+                if (diff < 60000) {
+                    return '刚刚';
+                } else if (diff < 3600000) {
+                    return Math.floor(diff / 60000) + '分钟前';
+                } else if (diff < 86400000) {
+                    return Math.floor(diff / 3600000) + '小时前';
+                } else if (diff < 604800000) {
+                    return Math.floor(diff / 86400000) + '天前';
+                } else {
+                    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    const day = date.getDate().toString().padStart(2, '0');
+                    const hour = date.getHours().toString().padStart(2, '0');
+                    const minute = date.getMinutes().toString().padStart(2, '0');
+                    return `${month}-${day} ${hour}:${minute}`;
+                }
+            }
+
+            // 获取头像文字（昵称第一个字）
+            function getAvatarText(nickname) {
+                if (!nickname) return '匿';
+                return nickname.charAt(0).toUpperCase();
+            }
+
+            // 渲染留言列表
+            function renderMessages() {
+                const messages = loadMessages();
+
+                // 更新计数
+                messageCount.textContent = `共 ${messages.length} 条留言`;
+
+                // 空状态
+                if (messages.length === 0) {
+                    emptyMessages.style.display = 'block';
+                    messagesContainer.innerHTML = '';
+                    messagesContainer.appendChild(emptyMessages);
+                    return;
+                }
+
+                emptyMessages.style.display = 'none';
+                messagesContainer.innerHTML = '';
+
+                // 按时间倒序显示
+                messages.slice().reverse().forEach((msg) => {
+                    const card = document.createElement('div');
+                    card.className = 'message-card';
+                    card.innerHTML = `
+                        <button class="message-delete-btn" onclick="deleteMessage('${msg.id}')" title="删除留言">✕</button>
+                        <div class="message-card-header">
+                            <div class="message-author">
+                                <div class="message-avatar">${getAvatarText(msg.nickname)}</div>
+                                <span class="message-nickname">${escapeHtml(msg.nickname || '匿名')}</span>
+                            </div>
+                            <span class="message-time">${formatTime(msg.timestamp)}</span>
+                        </div>
+                        <div class="message-content">${escapeHtml(msg.content).replace(/\n/g, '<br>')}</div>
+                    `;
+                    messagesContainer.appendChild(card);
+                });
+            }
+
+            // HTML转义
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // 提交留言
+            function submitMessage() {
+                const nickname = messageNickname.value.trim();
+                const content = messageContent.value.trim();
+
+                if (!content) {
+                    showToast('💭 请输入留言内容哦~');
+                    messageContent.focus();
+                    return;
+                }
+
+                const messages = loadMessages();
+                const newMessage = {
+                    id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+                    nickname: nickname || '匿名同学',
+                    content: content,
+                    timestamp: Date.now()
+                };
+
+                messages.push(newMessage);
+                saveMessages(messages);
+                renderMessages();
+
+                // 清空输入
+                messageContent.value = '';
+
+                showToast('✅ 留言发布成功！感谢你的祝福~🎉');
+
+                // 滚动到留言列表顶部
+                messagesContainer.scrollTop = 0;
+            }
+
+            // 删除留言
+            function deleteMessage(id) {
+                if (!confirm('确定要删除这条留言吗？')) {
+                    return;
+                }
+
+                let messages = loadMessages();
+                messages = messages.filter(msg => msg.id !== id);
+                saveMessages(messages);
+                renderMessages();
+                showToast('🗑️ 留言已删除');
+            }
+
+            // 留言内容回车键发送（Ctrl+Enter）
+            messageContent.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.ctrlKey) {
+                    e.preventDefault();
+                    submitMessage();
+                }
+            });
+
+            // 昵称输入框回车跳转到内容
+            messageNickname.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    messageContent.focus();
+                }
+            });
+
             // ============ 暴露到全局 ============
             window.updateName = updateName;
             window.resetName = resetName;
             window.focusInput = focusInput;
             window.captureCard = captureCard;
             window.shareInvitation = shareInvitation;
+            window.submitMessage = submitMessage;
+            window.deleteMessage = deleteMessage;
 
             // ============ 页面加载完成 ============
             console.log('🎓✨ 初中毕业典礼电子邀请函已就绪！');
             console.log('💡 提示：在输入框中填写姓名，点击生成按钮或按回车键即可');
             console.log('📸 点击"保存邀请函"可下载为高清图片');
             console.log('💬 点击"分享"可复制邀请文案');
+            console.log('💌 留言墙已就绪，欢迎留下你的祝福~');
+
+            // 渲染留言
+            renderMessages();
 
             // 自动聚焦输入框（延迟一下让页面先渲染）
             setTimeout(() => {
